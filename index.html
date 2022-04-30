@@ -1,0 +1,28 @@
+<head>
+    <!--- this is an examples --->
+    <!--- the script was copied from https://github.com/vasturiano/3d-force-graph/blob/master/example/large-graph/index.html --->
+    <!--- the main differnce was to change the link "//unpkg.com/3d-force-graph" to "https://unpkg.com/3d-force-graph --->
+  <style>
+    body {
+      margin: 0;
+    }
+  </style>
+
+  <script src="https://unpkg.com/3d-force-graph"></script>
+  <!--  <script src="../../dist/3d-force-graph.js"></script>-->
+</head>
+
+<body>
+
+  <div id="3d-graph"></div>
+
+  <script>
+    const elem = document.getElementById('3d-graph');
+
+    const Graph = ForceGraph3D()(elem)
+      .jsonUrl('sample.json')
+      .linkColor(`#888888`)
+      .nodeAutoColorBy('branch')
+      .nodeLabel(node => `${node.job}: ${node.skills}`);
+  </script>
+</body>
