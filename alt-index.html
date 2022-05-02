@@ -1,0 +1,63 @@
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&family=Roboto&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+  </style>
+
+  <script src="//unpkg.com/3d-force-graph"></script>
+  <!--  <script src="../../dist/3d-force-graph.js"></script>-->
+</head>
+
+<body>
+  <div id="wrapper">
+    <div id="3d-graph"></div>
+    <div id="header">
+      <h1>...</h1>
+      <h2>...</h2>
+    </div>
+  </div>
+
+  <style>
+    #wrapper {
+      width: 100vw;
+      height: 100vh;
+    }
+
+    #wrapper h1,
+    #wrapper h2 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 2em;
+      color: tomato;
+    }
+
+    #header {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: fit-content;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      backdrop-filter: blur(3px);
+      -webkit-backdrop-filter: blur(3px);
+    }
+  </style>
+
+  <script>
+    const elem = document.getElementById('3d-graph');
+
+    const Graph = ForceGraph3D()(elem)
+      .jsonUrl('sample.json')
+      .linkColor(`#888888`)
+      .nodeAutoColorBy('branch')
+      .nodeLabel(node => `${node.job}: ${node.skills}`);
+  </script>
+</body>
